@@ -1,9 +1,9 @@
 <template>
   <v-navigation-drawer
+    v-model="drawer"
     fixed
     app
     dark
-    permanent
     color="#23374D"
   >
     <div class="logo">
@@ -32,6 +32,12 @@
 
 <script>
 export default {
+  props: {
+    value: {
+      type: Boolean,
+      default: null
+    }
+  },
   data: () => ({
     items: [
       {
@@ -49,7 +55,17 @@ export default {
         title: 'Support'
       }
     ]
-  })
+  }),
+  computed: {
+    drawer: {
+      get() {
+        return this.value
+      },
+      set(val) {
+        this.$emit('input', val)
+      }
+    }
+  }
 }
 </script>
 
@@ -58,6 +74,7 @@ export default {
   font-family: Roboto;
   font-size: 28px;
   color: #ffffff;
+  margin-top: 16px;
   margin-left: 64px;
 }
 .drawer-menu {
