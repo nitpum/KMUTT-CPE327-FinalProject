@@ -19,9 +19,7 @@
       </v-col>
       <v-col cols="12" sm="4">
         <v-card-text v-if="cardExist" class="d-flex flex-column">
-          <v-btn color="primary" depressed large block>
-            Edit
-          </v-btn>
+          <edit-payment-method />
           <v-btn class="mt-3" color="danger" outlined large block>
             Remove
           </v-btn>
@@ -37,7 +35,12 @@
 </template>
 
 <script>
+import EditPaymentMethod from './EditPaymentMethod'
+
 export default {
+  components: {
+    EditPaymentMethod
+  },
   data: () => ({
     card: {
       type: 'Visa',
