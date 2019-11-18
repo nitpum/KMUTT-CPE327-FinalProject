@@ -20,14 +20,12 @@
       <v-col cols="12" sm="4">
         <v-card-text v-if="cardExist" class="d-flex flex-column">
           <edit-payment-method />
-          <v-btn class="mt-3" color="danger" outlined large block>
+          <v-btn class="mt-3" color="danger" outlined large block @click="remove">
             Remove
           </v-btn>
         </v-card-text>
         <v-card-text v-else class="d-flex flex-column">
-          <v-btn color="primary" depressed large block>
-            Add card
-          </v-btn>
+          <edit-payment-method mode="add" />
         </v-card-text>
       </v-col>
     </v-row>
@@ -35,22 +33,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import EditPaymentMethod from './EditPaymentMethod'
 
 export default {
   components: {
     EditPaymentMethod
   },
-  data: () => ({
-    card: {
-      type: 'Visa',
-      ending: '0000',
-      expires: '00/00'
-    }
-  }),
   computed: {
-    cardExist() {
-      return !!this.card
+    ...mapGetters({
+      card: 'billing/method',
+      cardExist: 'billing/cardExist'
+    })
+  },
+  methods: {
+    remove() {
+      this.$store.commit('billing/REMOVE_METHOD')
     }
   }
 }
