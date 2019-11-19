@@ -11,7 +11,7 @@
 
 <script>
 import PaymentMethod from '@/components/billing/method/PaymentMethod'
-import BillingAddress from '@/components/billing/BillingAddress'
+import BillingAddress from '@/components/billing/address/BillingAddress'
 
 export default {
   components: {

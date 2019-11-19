@@ -7,6 +7,12 @@ export const state = () => ({
   method: {
     number: '0000-0000-0000-0000',
     expires: '00/00'
+  },
+  address: {
+    name: '',
+    addr1: '',
+    addr2: '',
+    country: ''
   }
 })
 
@@ -16,7 +22,8 @@ export const getters = {
     type: cardType[state.method.number.split('')[0]] || 'Unknown type',
     ending: state.method.number.split('-').slice(-1)[0],
     expires: state.method.expires
-  })
+  }),
+  addressExist: state => !!state.address.name
 }
 
 export const mutations = {
@@ -27,5 +34,21 @@ export const mutations = {
   REMOVE_METHOD(state) {
     state.method.number = '0000-0000-0000-0000'
     state.method.expires = '00/00'
+  },
+  SET_ADDRESS(state, { name, addr1, addr2, country }) {
+    state.address = {
+      name,
+      addr1,
+      addr2,
+      country
+    }
+  },
+  REMOVE_ADDRESS(state) {
+    state.address = {
+      name: '',
+      addr1: '',
+      addr2: '',
+      country: ''
+    }
   }
 }
