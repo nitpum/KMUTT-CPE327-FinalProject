@@ -19,13 +19,11 @@
       </v-col>
       <v-col cols="12" sm="4">
         <v-card-text v-if="cardExist" class="d-flex flex-column">
-          <edit-payment-method />
-          <v-btn class="mt-3" color="danger" outlined large block @click="remove">
-            Remove
-          </v-btn>
+          <edit />
+          <remove />
         </v-card-text>
         <v-card-text v-else class="d-flex flex-column">
-          <edit-payment-method mode="add" />
+          <edit mode="add" />
         </v-card-text>
       </v-col>
     </v-row>
@@ -34,22 +32,19 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import EditPaymentMethod from './EditPaymentMethod'
+import Edit from './Edit'
+import Remove from './Remove'
 
 export default {
   components: {
-    EditPaymentMethod
+    Edit,
+    Remove
   },
   computed: {
     ...mapGetters({
       card: 'billing/method',
       cardExist: 'billing/cardExist'
     })
-  },
-  methods: {
-    remove() {
-      this.$store.commit('billing/REMOVE_METHOD')
-    }
   }
 }
 </script>

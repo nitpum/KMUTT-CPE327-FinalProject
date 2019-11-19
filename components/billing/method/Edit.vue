@@ -6,7 +6,7 @@
       </v-btn>
     </template>
 
-    <v-sheet style="padding: 24px">
+    <v-card style="padding: 24px">
       <div class="d-flex mb-3">
           Payment Method
         <v-icon class="ml-auto" @click="close">
@@ -55,16 +55,16 @@
             />
           </v-col>
           <v-col cols="12" class="d-flex flex-row-reverse">
-            <v-btn color="primary" :disabled="!valid" depressed small @click="save">
+            <v-btn color="primary" :disabled="!valid" depressed @click="save">
               save
             </v-btn>
-            <v-btn color="primary" class="mr-3" outlined small @click="close">
+            <v-btn color="primary" class="mr-3" outlined @click="close">
               close
             </v-btn>
           </v-col>
         </v-row>
       </v-form>
-    </v-sheet>
+    </v-card>
   </v-dialog>
 </template>
 

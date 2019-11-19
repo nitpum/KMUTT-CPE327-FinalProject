@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import PaymentMethod from '@/components/billing/PaymentMethod'
+import PaymentMethod from '@/components/billing/method/PaymentMethod'
 import BillingAddress from '@/components/billing/BillingAddress'
 
 export default {
