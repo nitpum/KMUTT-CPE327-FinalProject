@@ -49,7 +49,8 @@ export default {
         to: '/profile'
       },
       {
-        title: 'Billing'
+        title: 'Billing',
+        to: '/billing'
       },
       {
         title: 'Support'

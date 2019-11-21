@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "nuxt": "^2.0.0"
+    "moment": "^2.24.0",
+    "nuxt": "^2.0.0",
+    "vue-the-mask": "^0.11.1",
+    "vuex-persistedstate": "^2.7.0"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0",
