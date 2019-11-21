@@ -42,7 +42,7 @@ export default {
     items: [
       {
         title: 'Cloud Service',
-        to: '/'
+        to: '/cloud'
       },
       {
         title: 'Profile',
