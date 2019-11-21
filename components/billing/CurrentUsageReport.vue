@@ -19,7 +19,7 @@
           class="d-flex grey--text text--darken-1"
         >
           <div>{{ project.name }}</div>
-          <div class="ml-auto">{{ project.cost }}</div>
+          <div class="ml-auto">${{ project.cost }}</div>
         </div>
       </div>
     </v-sheet>
@@ -27,19 +27,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data: () => ({
-    dialog: false,
-    projects: [
-      {
-        name: 'Project 1',
-        cost: '$8.03'
-      },
-      {
-        name: 'Project 2',
-        cost: '$7.04'
-      }
-    ]
-  })
+    dialog: false
+  }),
+  computed: {
+    ...mapState({
+      projects: state => state.billing.currentUsage
+    })
+  }
 }
 </script>

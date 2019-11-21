@@ -5,7 +5,7 @@
     </v-card-title>
     <v-card-text>
       <div>
-        {{ month }}, {{ year }}
+        {{ currentBill }}
       </div>
       <div class="d-flex flex-row-reverse">
         <current-usage-report />
@@ -27,16 +27,28 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
+import moment from 'moment'
 import CurrentUsageReport from './CurrentUsageReport'
 
 export default {
+  directives: {
+    moment
+  },
   components: {
     CurrentUsageReport
   },
   data: () => ({
     month: 'Oct',
     year: 2019,
-    cost: '0.00'
-  })
+  }),
+  computed: {
+    ...mapGetters({
+      cost: 'billing/currentUsage'
+    }),
+    currentBill() {
+      return moment().format('MMM, YYYY')
+    }
+  }
 }
 </script>

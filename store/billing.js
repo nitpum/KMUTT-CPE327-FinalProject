@@ -13,7 +13,17 @@ export const state = () => ({
     addr1: '',
     addr2: '',
     country: ''
-  }
+  },
+  currentUsage: [
+    {
+      name: 'Project 1',
+      cost: 8.03
+    },
+    {
+      name: 'Project 2',
+      cost: 7.04
+    }
+  ]
 })
 
 export const getters = {
@@ -23,7 +33,8 @@ export const getters = {
     ending: state.method.number.split('-').slice(-1)[0],
     expires: state.method.expires
   }),
-  addressExist: state => !!state.address.name
+  addressExist: state => !!state.address.name,
+  currentUsage: state => state.currentUsage.reduce((acc, val) => acc + val.cost, 0)
 }
 
 export const mutations = {
