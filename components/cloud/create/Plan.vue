@@ -1,68 +1,121 @@
 <template>
   <div>
-    <div class="title">
-      Choose an Image
+    <div class="d-flex">
+      <div class="title">
+        Choose a plan
+      </div>
+      <a href="/support" target="blank" class="help ml-auto d-flex align-center">
+        Help me choose
+        <v-icon right color="primary">mdi-alert-circle-outline</v-icon>
+      </a>
     </div>
-    <v-tabs>
-      <v-tab>Distribution</v-tab>
-      <v-tab>Marketplace</v-tab>
+    <v-tabs v-model="selectedTab">
+      <v-tab>All type</v-tab>
+      <v-tab v-for="tab in tabs.slice(1)">{{ tab }}</v-tab>
     </v-tabs>
-    <v-row>
-      <v-col
-        v-for="(image, i) in images"
-        :key="'image-' + i"
-        cols="6"
-        sm="3"
+    <v-radio-group v-model="selected">
+      <v-data-table
+        :headers="headers"
+        :items="plans"
+        :search="tabs[selectedTab]"
+        item-key="id"
+        show-select
+        single-select
+        hide-default-footer
+        :custom-filter="planFilter"
       >
-        <distro
-          :logo="image.logo"
-          :distro="image.distro"
-          :versions="image.versions"
-          :selected.sync="selected"
-        />
-      </v-col>
-    </v-row>
+        <template v-slot:item.data-table-select="{ item }">
+          <v-radio :value="item.id" />
+        </template>
+        <template v-slot:item.price="{ value }">
+          ${{ value }}/mo<br />
+          ${{ (value / 720).toFixed(3) }}/hr
+        </template>
+      </v-data-table>
+    </v-radio-group>
+    <div class="caption" v-if="currentPlan">
+      Currently selected:
+      {{ currentPlan.type }} /
+      {{ currentPlan.memory }} /
+      {{ currentPlan.vCPUs }}
+    </div>
   </div>
 </template>
 
-<script>
-import Distro from './Distro'
+<style scoped>
+.help {
+  text-decoration: none;
+}
+</style>
 
+<script>
 export default {
-  components: {
-    Distro
-  },
   data: () => ({
-    selected: {
-      distro: '',
-      version: ''
-    },
-    images: [
+    selectedTab: 0,
+    tabs: ['.*', 'Standard', 'Optimize'],
+    plans: [
+       {
+         id: 1,
+         type: 'Standard',
+         cpuType: 'Shared CPU',
+         vCPUs: '1 vCPU',
+         memory: '1 GB',
+         ssd: '25 GB',
+         transfer: '1 TB',
+         price: 5
+       },
+       {
+         id: 2,
+         type: 'Standard',
+         cpuType: 'Shared CPU',
+         vCPUs: '1 vCPU',
+         memory: '2 GB',
+         ssd: '50 GB',
+         transfer: '2 TB',
+         price: 10
+       }
+    ],
+    selected: 0,
+    headers: [
       {
-        logo: 'cof_white-orange_hex.png',
-        distro: 'Ubuntu',
-        versions: [
-          '18.04.3 (LTS)',
-          '16.04.6 (LTS)'
-        ]
+        text: 'Type',
+        value: 'type'
       },
       {
-        logo: 'freebsd-logo-png-transparent.png',
-        distro: 'FreeBSD',
-        versions: [
-          '12.1',
-          '12.0',
-          '11.3'
-        ]
+        text: 'CPU-Type',
+        value: 'cpuType',
       },
       {
-        logo: 'Fedora_logo.png',
-        distro: 'Fedora',
-        versions: [
-          '31'
-        ]
+        text: 'vCPUs',
+        value: 'vCPUs',
+      },
+      {
+        text: 'Memory',
+        value: 'memory',
+      },
+      {
+        text: 'SSD',
+        value: 'ssd'
+      },
+      {
+        text: 'Transfer',
+        value: 'transfer'
+      },
+      {
+        text: 'Price',
+        value: 'price'
       }
     ]
-  })
+  }),
+  computed: {
+    currentPlan() {
+      return this.plans.find(({ id }) => id === this.selected)
+    }
+  },
+  methods: {
+    planFilter(value, search, item) {
+      return new RegExp(search).test(item.type)
+    }
+  }
 }
 </script>
