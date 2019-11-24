@@ -4,6 +4,7 @@
       <v-img 
         class="ma-3"
         :aspect-ratio="3 / 2"
+        contain
         :src="require('@/assets/images/' + img)"
       />
       {{ title }}
