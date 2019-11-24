@@ -24,7 +24,7 @@ export default {
       switch(this.$route.name) {
         case 'cloud': return 'Dashboard'
         case 'cloud-create': return 'Create'
-        default: 'return Dashboard'
+        default: return 'Dashboard'
       }
     }
   }
