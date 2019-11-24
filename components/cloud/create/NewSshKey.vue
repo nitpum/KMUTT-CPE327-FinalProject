@@ -6,7 +6,7 @@
       </v-btn>
     </template>
     <v-card>
-      <v-icon class="close-btn">mdi-close</v-icon>
+      <v-icon class="close-btn" @click="dialog = false">mdi-close</v-icon>
       <v-card-text class="pt-5">
         <v-row>
           <v-col cols="12" sm="7">
@@ -20,7 +20,7 @@
               hide-details
               class="mb-3"
             />
-            <v-btn block color="primary">
+            <v-btn block color="primary" @click="dialog = false">
               Add SSH Key
             </v-btn>
           </v-col>
