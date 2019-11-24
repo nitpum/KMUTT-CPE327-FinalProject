@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" width="800">
     <template #activator="{ on }">
-      <v-btn v-on="on" color="primary">
+      <v-btn v-on="on" depressed color="primary">
         New SSH Key
       </v-btn>
     </template>
