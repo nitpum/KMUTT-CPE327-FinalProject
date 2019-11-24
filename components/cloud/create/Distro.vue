@@ -41,6 +41,7 @@
 .unselected {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
+  opacity: 60%;
 }
 </style>
 
