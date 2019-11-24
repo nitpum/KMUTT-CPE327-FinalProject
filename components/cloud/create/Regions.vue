@@ -17,6 +17,7 @@
           :img="region.image"
           :title="region.title"
           :servers="region.servers"
+          :selected.sync="selected"
         />
       </v-col>
     </v-row>
@@ -57,7 +58,11 @@ export default {
         title: 'Sakon Nakhon',
         servers: 2
       }
-    ]
+    ],
+    selected: {
+      region: '',
+      server: 0
+    }
   })
 }
 </script>

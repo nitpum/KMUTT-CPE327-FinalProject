@@ -1,5 +1,5 @@
 <template>
-  <v-card width="100%">
+  <v-card width="100%" :style="selectedRegion">
     <v-card-text class="text-center">
       <v-img 
         class="ma-3"
@@ -9,19 +9,21 @@
       {{ title }}
     </v-card-text>
     <v-divider />
-    <v-row class="ml-auto mr-auto" style="width: 100%">
+    <div class="d-flex">
       <template
         v-for="i in servers"
       >
-        <v-divider v-if="i !== 1" vertical />
-        <v-col
+        <v-divider v-if="i !== 1 && !isServerSelected(i)" vertical />
+        <div
           :key="title + '-' + i"
-          class="text-center"
+          class="text-center flex-grow-1 py-1"
+          :style="selectedServer(i)"
+          @click="select(i)"
         >
           {{ i }}
-        </v-col>
+        </div>
       </template>
-    </v-row>
+    </div>
   </v-card>
 </template>
 
@@ -39,6 +41,41 @@ export default {
     servers: {
       type: Number,
       default: 1
+    },
+    selected: {
+      type: Object,
+      default: () => ({
+        region: '',
+        server: 0
+      })
+    }
+  },
+  computed: {
+    isServerSelected() {
+      return (i) => this.selected.region === this.title && i === this.selected.server
+    },
+    selectedRegion() {
+      return this.selected.region === this.title && {
+        border: '1px solid ' + this.$vuetify.theme.themes.light.primary
+      }
+    },
+    selectedServer() {
+      return (i) => this.isServerSelected(i)
+        ? {
+          backgroundColor: this.$vuetify.theme.themes.light.primary,
+          color: 'white'
+        }
+        : {
+          cursor: 'pointer'
+        }
+    }
+  },
+  methods: {
+    select(i) {
+      this.$emit('update:selected', {
+        region: this.title,
+        server: i
+      })
     }
   }
 }
