@@ -11,7 +11,12 @@
     </div>
     <v-tabs v-model="selectedTab">
       <v-tab>All type</v-tab>
-      <v-tab v-for="tab in tabs.slice(1)">{{ tab }}</v-tab>
+      <v-tab
+        v-for="tab in tabs.slice(1)"
+        :key="'tab-' + tab"
+      >
+        {{ tab }}
+      </v-tab>
     </v-tabs>
     <v-radio-group v-model="selected">
       <v-data-table
