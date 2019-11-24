@@ -27,10 +27,11 @@
         show-select
         single-select
         hide-default-footer
+        disable-sort
         :custom-filter="planFilter"
       >
         <template v-slot:item.data-table-select="{ item }">
-          <v-radio :value="item.id" />
+          <v-radio color="primary" :value="item.id" />
         </template>
         <template v-slot:item.price="{ value }">
           ${{ value }}/mo<br />
