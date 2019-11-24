@@ -10,15 +10,23 @@
 
 <script>
 import Dashboard from '@/components/cloud/title/Dashboard'
+import Create from '@/components/cloud/title/Create'
 import Breadcrumbs from '@/components/cloud/Breadcrumbs'
 
 export default {
   components: {
     Dashboard,
+    Create,
     Breadcrumbs
   },
-  data: () => ({
-    title: 'Dashboard'
-  })
+  computed: {
+    title() {
+      switch(this.$route.name) {
+        case 'cloud': return 'Dashboard'
+        case 'cloud-create': return 'Create'
+        default: 'return Dashboard'
+      }
+    }
+  }
 }
 </script>
