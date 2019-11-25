@@ -29,14 +29,19 @@
 import Distro from './Distro'
 
 export default {
+  props: {
+    value: {
+      type: Object,
+      default: () => ({
+        distro: '',
+        version: ''
+      })
+    }
+  },
   components: {
     Distro
   },
   data: () => ({
-    selected: {
-      distro: '',
-      version: ''
-    },
     images: [
       {
         logo: 'cof_white-orange_hex.png',
@@ -63,6 +68,16 @@ export default {
         ]
       }
     ]
-  })
+  }),
+  computed: {
+    selected: {
+      get() {
+        return this.value
+      },
+      set(val) {
+        this.$emit('input', val)
+      }
+    }
+  }
 }
 </script>

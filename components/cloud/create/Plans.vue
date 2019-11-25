@@ -113,6 +113,11 @@ export default {
       }
     ]
   }),
+  watch: {
+    currentPlan(val) {
+      this.$emit('input', val)
+    }
+  },
   computed: {
     currentPlan() {
       return this.plans.find(({ id }) => id === this.selected)

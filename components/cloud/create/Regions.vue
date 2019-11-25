@@ -28,6 +28,15 @@
 import Region from './Region'
 
 export default {
+  props: {
+    value: {
+      type: Object,
+      default: () => ({
+        region: '',
+        server: 0
+      })
+    }
+  },
   components: {
     Region
   },
@@ -58,11 +67,17 @@ export default {
         title: 'Sakon Nakhon',
         servers: 2
       }
-    ],
+    ]
+  }),
+  computed: {
     selected: {
-      region: '',
-      server: 0
+      get() {
+        return this.value
+      },
+      set(val) {
+        this.$emit('input', val)
+      }
     }
-  })
+  }
 }
 </script>

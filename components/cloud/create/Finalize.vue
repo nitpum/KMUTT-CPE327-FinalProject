@@ -30,7 +30,7 @@
         <div class="caption">
           Your Cloud service name can only contain alphanumeric character, dashes, and perriods
         </div>
-        <v-text-field outlined dense :rules="hostnameRules" />
+        <v-text-field v-model="hostname" outlined dense :rules="hostnameRules" />
       </v-col>
     </v-row>
   </div>
@@ -46,6 +46,7 @@
 export default {
   data: () => ({
     instances: 1,
+    hostname: '',
     hostnameRules: [
       v => /^([a-z]|\d|-|\.)+$/.test(v) || 'Invalid hostname'
     ]
@@ -56,6 +57,14 @@ export default {
     },
     increase() {
       this.instances += 1
+    }
+  },
+  watch: {
+    instances(val) {
+      this.$emit('update:instances', val)
+    },
+    hostname(val) {
+      this.$emit('update:hostname', val)
     }
   }
 }

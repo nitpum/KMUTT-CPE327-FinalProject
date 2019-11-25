@@ -32,3 +32,11 @@ export const state = () => ({
     }
   ]
 })
+
+export const mutations = {
+  ADD_SERVICE(state, { name, image, region, cpu, memory, storage, price, ipv4 }) {
+    state.services.push({
+      name, image, region, cpu, memory, storage, price, ipv4
+    })
+  }
+}
