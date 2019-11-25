@@ -3,7 +3,7 @@
     <div class="title">
       Choose an Image
     </div>
-    <v-tabs>
+    <v-tabs background-color="transparent">
       <v-tab>Distribution</v-tab>
       <v-tab>Marketplace</v-tab>
     </v-tabs>

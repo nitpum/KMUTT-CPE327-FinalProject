@@ -9,7 +9,7 @@
         <v-icon right color="primary">mdi-alert-circle-outline</v-icon>
       </a>
     </div>
-    <v-tabs v-model="selectedTab">
+    <v-tabs v-model="selectedTab" background-color="transparent">
       <v-tab>All type</v-tab>
       <v-tab
         v-for="tab in tabs.slice(1)"
