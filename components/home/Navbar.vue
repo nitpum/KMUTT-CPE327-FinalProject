@@ -8,6 +8,7 @@
         <v-card class="pa-2" outlined tile>One of three columns</v-card>
       </v-col>-->
       <v-col cols="2">
+        <img class="logo-icon" src="@/assets/icons/logo.png" alt />
         <span class="logo-text">LMS</span>
       </v-col>
       <v-col cols="7">
@@ -45,5 +46,11 @@ export default {}
   color: #3c9d9b;
   font-size: 24px;
   line-height: 36px;
+}
+.logo-icon {
+  /* width: 20%; */
+  height: 85%;
+  margin-top: -10px;
+  vertical-align: middle
 }
 </style>
