@@ -57,6 +57,9 @@ export default {}
   vertical-align: middle;
 }
 .navbar-btn {
+  font-family: Roboto;
+  font-weight: normal;
   padding: 0px 30px 0px 30px !important;
+  text-transform: capitalize;
 }
 </style>
