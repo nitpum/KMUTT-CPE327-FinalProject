@@ -1,14 +1,11 @@
 <template>
-  <!-- <div>
-    
-  </div>-->
   <v-container class="main" fluid>
     <v-row no-gutters>
       <!-- <v-col v-for="n in 3" :key="n" cols="12" sm="4">
         <v-card class="pa-2" outlined tile>One of three columns</v-card>
       </v-col>-->
       <v-col cols="2">
-        <img class="logo-icon" src="@/assets/icons/logo.png" alt />
+        <img class="logo-icon" :src="require('@/assets/icons/logo.svg')" alt />
         <span class="logo-text">LMS</span>
       </v-col>
       <v-col cols="7">
@@ -19,7 +16,14 @@
           <span class="menu-item">Support</span>
         </v-row>
       </v-col>
-      <v-col cols="3">signin singup</v-col>
+      <v-col cols="3">
+        <v-btn color="primary" outlined>
+          Sign in
+        </v-btn>
+        <v-btn color="primary" depressed>
+          Sign up
+        </v-btn>
+      </v-col>
     </v-row>
   </v-container>
 </template>

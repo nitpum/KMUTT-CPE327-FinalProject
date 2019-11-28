@@ -79,7 +79,7 @@ export default {
   margin-left: 64px;
 }
 .drawer-menu {
-  padding-left: 64px;
+  padding-left: 64px !important;
 }
 .copyright {
   color: #DADADA;
