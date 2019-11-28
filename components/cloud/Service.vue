@@ -15,7 +15,7 @@
             </v-icon>
           </div>
           <div>
-            <router-link class="service-name" to="/">
+            <router-link class="service-name" to="/cloud/id">
               {{ value.name }}
             </router-link>
             <div class="service-spec">
