@@ -5,8 +5,7 @@
         <v-card class="pa-2" outlined tile>One of three columns</v-card>
       </v-col>-->
       <v-col cols="2">
-        <img class="logo-icon" :src="require('@/assets/icons/logo.svg')" alt />
-        <span class="logo-text">LMS</span>
+        <logo />
       </v-col>
       <v-col cols="7">
         <v-row justify="start" fluid no-gutters>
@@ -29,7 +28,13 @@
 </template>
 
 <script>
-export default {}
+import Logo from '@/components/Logo'
+
+export default {
+  components: {
+    Logo
+  }
+}
 </script>
 
 <style>
@@ -45,16 +50,5 @@ export default {}
 }
 .menu-item:hover {
   color: #3c9d9b;
-}
-.logo-text {
-  color: #3c9d9b;
-  font-size: 24px;
-  line-height: 36px;
-}
-.logo-icon {
-  /* width: 20%; */
-  height: 85%;
-  margin-top: -10px;
-  vertical-align: middle
 }
 </style>
