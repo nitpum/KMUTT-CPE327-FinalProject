@@ -16,12 +16,11 @@
         </v-row>
       </v-col>
       <v-col cols="3">
-        <v-btn color="primary" outlined>
-          Sign in
-        </v-btn>
-        <v-btn color="primary" depressed>
-          Sign up
-        </v-btn>
+        <v-row justify="center">
+          <v-btn class="navbar-btn" color="primary" outlined>Sign in</v-btn>
+          <div style="width: 20px"></div>
+          <v-btn class="navbar-btn" color="primary" depressed>Sign up</v-btn>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
