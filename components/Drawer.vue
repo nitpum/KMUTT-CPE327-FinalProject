@@ -1,13 +1,7 @@
 <template>
-  <v-navigation-drawer
-    v-model="drawer"
-    fixed
-    app
-    dark
-    color="#23374D"
-  >
+  <v-navigation-drawer v-model="drawer" fixed app dark color="#23374D">
     <div class="d-flex logo">
-      <router-link to="/" style="text-decoration: none;">
+      <router-link to="/cloud" style="text-decoration: none;">
         <logo white />
       </router-link>
     </div>
@@ -87,7 +81,7 @@ export default {
   padding-left: 64px !important;
 }
 .copyright {
-  color: #DADADA;
+  color: #dadada;
   text-align: center;
   margin-bottom: 24px;
 }
