@@ -27,14 +27,9 @@
             <v-icon left>
               mdi-image
             </v-icon>
-            edit profile picture
+            edit picture
           </v-btn>
-          <v-btn color="primary" large outlined>
-            <v-icon left>
-              mdi-pencil
-            </v-icon>
-            edit profile
-          </v-btn>
+          <edit-profile />
         </v-col>
       </v-row>
     </v-card-text>
@@ -48,7 +43,12 @@ p {
 </style>
 
 <script>
+import EditProfile from './EditProfile'
+
 export default {
+  components: {
+    EditProfile
+  },
   data: () => ({
     email: {
       name: 'Email',
