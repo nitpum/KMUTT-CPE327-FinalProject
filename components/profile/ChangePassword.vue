@@ -35,6 +35,11 @@
 export default {
   data: () => ({
     dialog: false
-  })
+  }),
+  methods: {
+    close() {
+      this.dialog = false
+    }
+  }
 }
 </script>

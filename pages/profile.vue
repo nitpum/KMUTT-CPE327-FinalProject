@@ -8,7 +8,8 @@
           :key="'tab-' + i"
           :to="'/profile' + tab.to"
           exact
-        >{{ tab.name }}</v-tab>
+          >{{ tab.name }}</v-tab
+        >
       </v-tabs>
       <nuxt-child />
     </div>
@@ -31,7 +32,7 @@ export default {
       },
       {
         name: 'Security',
-        to: '/Security'
+        to: '/security'
       }
     ]
   })
