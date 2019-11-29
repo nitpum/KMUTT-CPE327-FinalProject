@@ -8,9 +8,7 @@
           :key="'tab-' + i"
           :to="'/profile' + tab.to"
           exact
-        >
-          {{ tab.name }}
-        </v-tab>
+        >{{ tab.name }}</v-tab>
       </v-tabs>
       <nuxt-child />
     </div>
@@ -19,6 +17,12 @@
 
 <script>
 export default {
+  name: 'Profile',
+  head() {
+    return {
+      title: 'Profile'
+    }
+  },
   data: () => ({
     menu: [
       {

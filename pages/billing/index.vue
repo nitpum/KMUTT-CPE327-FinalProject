@@ -10,6 +10,11 @@
 import CurrentUsage from '@/components/billing/CurrentUsage'
 
 export default {
+  head() {
+    return {
+      title: 'Profile'
+    }
+  },
   components: {
     CurrentUsage
   }
