@@ -6,8 +6,10 @@
     dark
     color="#23374D"
   >
-    <div class="logo">
-      LWS
+    <div class="d-flex logo">
+      <router-link to="/" style="text-decoration: none;">
+        <logo white />
+      </router-link>
     </div>
 
     <v-list style="margin-top: 28px;">
@@ -31,7 +33,12 @@
 </template>
 
 <script>
+import Logo from '@/components/Logo'
+
 export default {
+  components: {
+    Logo
+  },
   props: {
     value: {
       type: Boolean,
@@ -42,17 +49,19 @@ export default {
     items: [
       {
         title: 'Cloud Service',
-        to: '/'
+        to: '/cloud'
       },
       {
         title: 'Profile',
         to: '/profile'
       },
       {
-        title: 'Billing'
+        title: 'Billing',
+        to: '/billing'
       },
       {
-        title: 'Support'
+        title: 'Support',
+        to: '/support'
       }
     ]
   }),
@@ -71,14 +80,11 @@ export default {
 
 <style>
 .logo {
-  font-family: Roboto;
-  font-size: 28px;
-  color: #ffffff;
   margin-top: 16px;
-  margin-left: 64px;
+  margin-left: 24px;
 }
 .drawer-menu {
-  padding-left: 64px;
+  padding-left: 64px !important;
 }
 .copyright {
   color: #DADADA;

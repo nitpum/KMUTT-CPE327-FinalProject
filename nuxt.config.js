@@ -30,6 +30,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/localStorage.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -59,6 +60,9 @@ export default {
     theme: {
       dark: false,
       themes: {
+        light: {
+          primary: '#3C9D9B'
+        },
         dark: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
@@ -68,6 +72,9 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
         }
+      },
+      options: {
+        customProperties: true
       }
     }
   },
