@@ -1,10 +1,17 @@
-# cpe324-project
+# CPE327 Final Project
 
-> My first-rate Nuxt.js project
+> Lamo Web Service
+
+## Requirement
+
+VSCode
+
+- Prettier extension
+- EditorConfig
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm run install
 
