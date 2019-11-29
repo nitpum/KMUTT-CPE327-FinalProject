@@ -40,6 +40,7 @@ export default {
 .main {
   box-shadow: 0px 6px 14px 0px rgba(0, 0, 0, 0.1);
   z-index: 1;
+  background-color: white;
 }
 .menu-item {
   font-weight: normal;

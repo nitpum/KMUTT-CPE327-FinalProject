@@ -13,7 +13,7 @@
           </div>
         </v-col>
         <v-col cols="6">
-          <!-- <img src="@/assets/images/home-banner.png" alt /> -->
+          <img src="@/assets/images/home-banner.png" alt />
         </v-col>
       </v-row>
     </v-row>
