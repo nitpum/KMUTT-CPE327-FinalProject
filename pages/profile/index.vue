@@ -1,17 +1,17 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <current-usage />
+      <info />
     </v-col>
   </v-row>
 </template>
 
 <script>
-import CurrentUsage from '@/components/billing/CurrentUsage'
+import Info from '@/components/profile/Info'
 
 export default {
   components: {
-    CurrentUsage
+    Info
   }
 }
 </script>
