@@ -31,10 +31,18 @@
         ********
       </div>
       <div class="ml-auto">
-        <v-btn color="primary" small depressed>
-          change
-        </v-btn>
+        <change-password />
       </div>
     </v-card-text>
   </v-card>
 </template>
+
+<script>
+import ChangePassword from './ChangePassword'
+
+export default {
+  components: {
+    ChangePassword
+  }
+}
+</script>
