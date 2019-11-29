@@ -8,7 +8,7 @@
           </v-avatar>
         </v-col>
         <v-col cols="12" sm="9">
-          <div class="title black--text">
+          <div class="title text--primary mt-0">
             John Doe
           </div>
           <v-row>
