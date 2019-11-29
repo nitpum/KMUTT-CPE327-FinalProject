@@ -10,9 +10,15 @@
   </v-app>
 </template>
 
+<style>
+a {
+  text-decoration: none;
+}
+</style>
+
 <style scoped>
 .content {
-  background-color: #F2F5F9;
+  background-color: #f2f5f9;
 }
 </style>
 
