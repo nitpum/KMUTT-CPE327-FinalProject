@@ -9,13 +9,11 @@
           <span class="title-sub-text">Deploy in seconds</span>
           <div style="height:10px"></div>
           <div>
-            <v-btn class="big-btn" color="primary" depressed
-              >Try free 30 days with 100$</v-btn
-            >
+            <v-btn class="big-btn" color="primary" depressed>Try free 30 days with 100$</v-btn>
           </div>
         </v-col>
         <v-col cols="6">
-          <!-- <img src="@/assets/images/home-banner.png" alt /> -->
+          <img src="@/assets/images/home-banner.png" alt />
         </v-col>
       </v-row>
     </v-row>
