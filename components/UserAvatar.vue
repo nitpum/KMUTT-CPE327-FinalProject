@@ -8,7 +8,7 @@
     <template v-slot:activator="{ on }">
       <v-btn v-on="on" text>
         <v-avatar size="36px">
-          <v-img src="https://i.pravatar.cc/36" />
+          <v-img :src="$store.state.profile.avatar" />
         </v-avatar>
         <v-icon right>
           {{ menu ? 'mdi-chevron-up' : 'mdi-chevron-down' }}

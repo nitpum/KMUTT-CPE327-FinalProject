@@ -4,13 +4,11 @@
       <v-row>
         <v-col cols="12" sm="3">
           <v-avatar width="100%" height="auto">
-            <v-img src="https://cdn.vuetifyjs.com/images/john.jpg" />
+            <v-img :src="avatar" />
           </v-avatar>
         </v-col>
         <v-col cols="12" sm="9">
-          <div class="title text--primary mt-0">
-            John Doe
-          </div>
+          <div class="title text--primary mt-0">{{ name }}</div>
           <v-row>
             <v-col cols="12" sm="6">
               <p v-for="item in [email, tel, company]">
@@ -24,10 +22,7 @@
             </v-col>
           </v-row>
           <v-btn color="primary" large outlined>
-            <v-icon left>
-              mdi-image
-            </v-icon>
-            edit picture
+            <v-icon left>mdi-image</v-icon>edit picture
           </v-btn>
           <edit-profile />
         </v-col>
@@ -43,34 +38,46 @@ p {
 </style>
 
 <script>
+import { mapState } from 'vuex'
 import EditProfile from './EditProfile'
 
 export default {
   components: {
     EditProfile
   },
-  data: () => ({
-    email: {
-      name: 'Email',
-      value: 'john@doe.com'
+  computed: {
+    ...mapState({
+      avatar: state => state.profile.avatar,
+      firstname: state => state.profile.firstname,
+      lastname: state => state.profile.lastname
+    }),
+    name() {
+      return this.firstname + ' ' + this.lastname
     },
-    tel: {
-      name: 'Telephone',
-      value: '+66855469978'
+    email() {
+      return {
+        name: 'Email',
+        value: this.$store.state.profile.email
+      }
     },
-    company: {
-      name: 'Company',
-      value: 'Doe Tech Co., Ltd'
+    tel() {
+      return {
+        name: 'Tel',
+        value: this.$store.state.profile.tel
+      }
     },
-    address: {
-      name: 'Address',
-      value: `Doe Tech Co., Ltd
-        228/24-25 Lat Phrao Road
-        Chom Phon, Chatuchak,
-        Bangkok 10900
-        Thailand
-      `
+    company() {
+      return {
+        name: 'Company',
+        value: this.$store.state.profile.company
+      }
+    },
+    address() {
+      return {
+        name: 'Address',
+        value: this.$store.state.profile.address
+      }
     }
-  })
+  }
 }
 </script>
