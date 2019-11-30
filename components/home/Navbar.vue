@@ -55,7 +55,8 @@ export default {
   color: #3c9d9b;
 }
 .navbar-btn {
-  font-size: 16px;
+  padding: 0px 30px 0px 30px !important;
+  font-size: 14px !important;
   text-transform: capitalize;
 }
 </style>
