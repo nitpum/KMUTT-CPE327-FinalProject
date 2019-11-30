@@ -1,13 +1,31 @@
 <template>
   <v-row>
     <v-col cols="12" sm="4" offset-sm="8">
-      <v-select v-model="period" label="Select period" :items="periods" outlined hide-details />
+      <v-select
+        v-model="period"
+        label="Select period"
+        :items="periods"
+        outlined
+        hide-details
+      />
     </v-col>
-    <v-col cols="12">CPU usage</v-col>
-    <!-- <line-chart :chartdata="cpus[period]" /> -->
-    <line-chart :chartdata="cpu.data[period]" :options="cpu.option" />
-    <v-col cols="12">Network usage</v-col>
-    <line-chart :chartdata="network.data[period]" :options="network.option" />
+    <v-col cols="12">
+      CPU usage
+      <!-- <line-chart :chartdata="cpus[period]" /> -->
+      <line-chart
+        :chartdata="cpu.data[period]"
+        :options="cpu.option"
+        height="100"
+      />
+    </v-col>
+    <v-col cols="12">
+      Network usage
+      <line-chart
+        :chartdata="network.data[period]"
+        :options="network.option"
+        height="100"
+      />
+    </v-col>
   </v-row>
 </template>
 
