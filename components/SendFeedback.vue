@@ -15,7 +15,7 @@
         <v-row justify="end" fluid no-gutters>
           <v-col cols="3">
             <v-btn @click="close" class="btn" color="primary" outlined
-              >Cancle</v-btn
+              >Cancel</v-btn
             >
           </v-col>
           <v-col cols="3">
@@ -32,7 +32,7 @@
 <style scoped>
 .btn {
   font-size: 14px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   width: 90%;
   float: right;
 }
