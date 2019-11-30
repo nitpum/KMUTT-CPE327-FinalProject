@@ -14,7 +14,9 @@
         ></v-textarea>
         <v-row justify="end" fluid no-gutters>
           <v-col cols="3">
-            <v-btn @click="close" class="btn" color="primary" outlined>Cancle</v-btn>
+            <v-btn @click="close" class="btn" color="primary" outlined
+              >Cancle</v-btn
+            >
           </v-col>
           <v-col cols="3">
             <v-btn class="btn" color="primary" depressed>Submit</v-btn>
@@ -25,8 +27,7 @@
   </v-dialog>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <style scoped>
 .btn {
@@ -37,17 +38,22 @@
 }
 </style>
 
-
-
 <script>
 export default {
-  data: () => ({
-    dialog: false
-  }),
   props: {
-    dialog: {
+    value: {
       type: Boolean,
-      default: true
+      default: false
+    }
+  },
+  computed: {
+    dialog: {
+      get() {
+        return this.value
+      },
+      set(val) {
+        this.$emit('input', val)
+      }
     }
   },
   methods: {
