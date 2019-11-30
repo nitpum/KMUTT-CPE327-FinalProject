@@ -15,7 +15,7 @@
       <line-chart
         :chartdata="cpu.data[period]"
         :options="cpu.option"
-        height="100"
+        :height="100"
       />
     </v-col>
     <v-col cols="12">
@@ -23,7 +23,7 @@
       <line-chart
         :chartdata="network.data[period]"
         :options="network.option"
-        height="100"
+        :height="100"
       />
     </v-col>
   </v-row>
