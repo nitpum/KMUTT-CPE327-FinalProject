@@ -7,7 +7,7 @@
         <v-icon right color="primary">mdi-alert-circle-outline</v-icon>
       </a>
     </div>
-    <v-tabs v-model="selectedTab" background-color="transparent">
+    <v-tabs class="tab-bar" v-model="selectedTab" background-color="transparent">
       <v-tab>All type</v-tab>
       <v-tab v-for="tab in tabs.slice(1)" :key="'tab-' + tab">{{ tab }}</v-tab>
     </v-tabs>
