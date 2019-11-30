@@ -20,11 +20,13 @@
       <v-list dense>
         <v-list-item>
           <v-list-item-title>
+            <v-icon left small>mdi-message-draw</v-icon>
             Send feedback
           </v-list-item-title>
         </v-list-item>
-        <v-list-item>
+        <v-list-item to="/">
           <v-list-item-title>
+            <v-icon left small>mdi-logout</v-icon>
             Logout
           </v-list-item-title>
         </v-list-item>
