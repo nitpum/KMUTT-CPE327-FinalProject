@@ -21,7 +21,9 @@
             <v-btn class="navbar-btn" color="primary" outlined>Sign in</v-btn>
           </router-link>
           <div style="width: 20px"></div>
-          <v-btn class="navbar-btn" color="primary" depressed>Sign up</v-btn>
+          <router-link to="/signup">
+            <v-btn class="navbar-btn" color="primary" depressed>Sign up</v-btn>
+          </router-link>
         </v-row>
       </v-col>
     </v-row>
