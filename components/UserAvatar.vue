@@ -5,24 +5,28 @@
         <v-avatar size="36px">
           <v-img :src="$store.state.profile.avatar" />
         </v-avatar>
-        <v-icon right>{{ menu ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+        <v-icon right>
+          {{
+          menu ? 'mdi-chevron-up' : 'mdi-chevron-down'
+          }}
+        </v-icon>
       </v-btn>
     </template>
 
     <v-card>
       <v-list dense>
-        <v-list-item @click="feedback = true">
+        <v-list-item>
           <v-list-item-title>
-            Send feedback
+            <v-icon left small>mdi-message-draw</v-icon>Send feedback
             <send-feedback />
           </v-list-item-title>
         </v-list-item>
-        <div class="line"></div>
-        <router-link to="/">
-          <v-list-item>
-            <v-list-item-title>Logout</v-list-item-title>
-          </v-list-item>
-        </router-link>
+        <v-divider />
+        <v-list-item to="/">
+          <v-list-item-title>
+            <v-icon left small>mdi-logout</v-icon>Logout
+          </v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-card>
   </v-menu>

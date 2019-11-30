@@ -5,29 +5,24 @@
         <v-avatar size="36px">
           <v-icon>mdi-bell-outline</v-icon>
         </v-avatar>
-        <!-- <v-icon right>{{ menu ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon> -->
       </v-btn>
     </template>
 
     <v-card class="card">
       <v-list dense>
-        <!-- noti 1 -->
-        <v-list-item>
+        <v-list-item v-for="(item, i) in items" :key="'noti-' + i">
           <div class="noti-card">
-            <p class="noti-card-content noti-card-title">System</p>
-            <p
-              class="noti-card-content noti-card-body"
-            >Sakhon Nakhon 1 will down todat due to blackout</p>
-            <p class="noti-card-content noti-card-time">November 27, 2019 21:09</p>
+            <p class="noti-card-content noti-card-title">
+              {{ item.title }}
+            </p>
+            <p class="noti-card-content noti-card-body"            >
+              {{ item.body }}
+            </p>
+            <p class="noti-card-content noti-card-time">
+              {{ item.time }}
+            </p>
           </div>
         </v-list-item>
-        <!-- noti 2 -->
-        <v-list-item>
-          <div class="noti-card">
-            <p class="noti-card-content noti-card-title">System</p>
-            <p class="noti-card-content noti-card-body">ubuntu-s-1vcpu-1gb-sg1 is ready</p>
-            <p class="noti-card-content noti-card-time">November 27, 2019 21:09</p>
-          </div>
         </v-list-item>
       </v-list>
     </v-card>
@@ -53,8 +48,6 @@
   color: rgb(102, 102, 102);
   font-size: 16px;
 }
-.noti-card-body {
-}
 .noti-card-time {
   font-size: 14px;
   color: rgba(102, 102, 102, 0.7);
@@ -62,9 +55,16 @@
 </style>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data: () => ({
     menu: false
-  })
+  }),
+  computed: {
+    ...mapState({
+      items: state => state.notification.items
+    })
+  }
 }
 </script>

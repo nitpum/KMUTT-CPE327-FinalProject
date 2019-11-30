@@ -31,26 +31,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  data: () => ({
-    logs: [
-      {
-        no: 2,
-        status: 'success',
-        ip: '127.123.111.1',
-        country: 'Thailand',
-        date: 'May 23, 2019',
-        time: '8.03'
-      },
-      {
-        no: 1,
-        status: 'fail',
-        ip: '127.123.111.1',
-        country: 'Thailand',
-        date: 'May 23, 2019',
-        time: '8.01'
-      }
-    ]
-  })
+  computed: {
+    ...mapState({
+      logs: state => state.profile.logs
+    })
+  }
 }
 </script>

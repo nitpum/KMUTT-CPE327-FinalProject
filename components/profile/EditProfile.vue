@@ -14,19 +14,51 @@
         <v-form ref="form">
           <v-row>
             <v-col cols="12" sm="6">
-              <v-text-field v-model="firstname" label="First Name" outlined dense hide-details />
+              <v-text-field
+                v-model="firstname"
+                label="First Name"
+                outlined
+                dense
+                hide-details
+              />
             </v-col>
             <v-col cols="12" sm="6">
-              <v-text-field v-model="lastname" label="Last Name" outlined dense hide-details />
+              <v-text-field
+                v-model="lastname"
+                label="Last Name"
+                outlined
+                dense
+                hide-details
+              />
             </v-col>
             <v-col cols="12" sm="6">
-              <v-text-field v-model="email" label="Email" outlined dense hide-details />
+              <v-text-field
+                v-model="email"
+                type="email"
+                label="Email"
+                outlined
+                dense
+                hide-details
+              />
             </v-col>
             <v-col cols="12" sm="6">
-              <v-text-field v-model="tel" label="Telephone" outlined dense hide-details />
+              <v-text-field
+                v-model="tel"
+                type="tel"
+                label="Telephone"
+                outlined
+                dense
+                hide-details
+              />
             </v-col>
             <v-col cols="12" sm="6">
-              <v-textarea v-model="address" label="Address" outlined dense hide-details />
+              <v-textarea
+                v-model="address"
+                label="Address"
+                outlined
+                dense
+                hide-details
+              />
             </v-col>
             <v-col cols="12" sm="6">
               <v-text-field
@@ -40,7 +72,9 @@
           </v-row>
         </v-form>
         <div class="d-flex flex-row-reverse">
-          <v-btn color="primary" depressed class="ml-3" @click="save">save</v-btn>
+          <v-btn color="primary" depressed class="ml-3" @click="save"
+            >save</v-btn
+          >
           <v-btn color="primary" outlined @click="close">cancel</v-btn>
         </div>
       </v-card-text>
