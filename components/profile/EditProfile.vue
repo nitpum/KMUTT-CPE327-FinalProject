@@ -41,7 +41,7 @@
         </v-form>
         <div class="d-flex flex-row-reverse">
           <v-btn color="primary" depressed class="ml-3" @click="save">save</v-btn>
-          <v-btn color="primary" outlined>cancel</v-btn>
+          <v-btn color="primary" outlined @click="close">cancel</v-btn>
         </div>
       </v-card-text>
     </v-card>

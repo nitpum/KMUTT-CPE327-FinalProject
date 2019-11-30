@@ -6,10 +6,13 @@ export const state = () => ({
   tel: '+66855469978',
   company: 'Doe Tech Co., Ltd',
   address: `Doe Tech Co., Ltd
-    228/24-25 Lat Phrao Road
-    Chom Phon, Chatuchak,
-    Bangkok 10900
-    Thailand`
+      228/24-25 Lat Phrao Road
+      Chom Phon, Chatuchak,
+      Bangkok 10900
+      Thailand`
+    .split('\n')
+    .map(line => line.trim())
+    .join('\n')
 })
 
 export const mutations = {
