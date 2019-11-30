@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height fluid>
+  <div class="fill-height">
     <v-row class="bg">
       <v-col cols="12">
         <v-row>
@@ -18,9 +18,13 @@
             </div>
           </div>
         </v-row>
+        <div class="mt-6 text-center">
+          Already have an account?
+          <router-link to="/signin">Sign In</router-link>
+        </div>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script>
