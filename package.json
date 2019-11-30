@@ -14,6 +14,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "moment": "^2.24.0",
     "nuxt": "^2.0.0",
+    "terminatorator": "0.0.6",
     "vue-the-mask": "^0.11.1",
     "vuex-persistedstate": "^2.7.0"
   },

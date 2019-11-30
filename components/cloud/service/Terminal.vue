@@ -6,40 +6,32 @@
         <v-icon class="ml-auto" @click="close">mdi-close</v-icon>
       </v-card-title>
       <v-card-text>
-        <div class="terminal">{{ bash }}</div>
-      </v-card-text>
-      <v-card-text>
-        <v-text-field
-          v-model="command"
-          outlined
-          dense
-          prefix="user@lms:~$ "
-          @keyup.enter="enter"
-          hide-details
-        />
+        <div class="terminal">
+          <div ref="terminal" />
+        </div>
       </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
+<style>
+output {
+  white-space: pre;
+  tab-size: 2 !important;
+}
+</style>
+
 <style scoped>
 .terminal {
-  background: rgba(0, 0, 0, 0.75);
-  border: 1.5px solid #c4c4c4;
-  box-sizing: border-box;
-  border-radius: 5px;
-  padding: 12px 24px 12px 24px;
-  font-family: monospace;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 17px;
-  color: rgba(255, 255, 255, 0.5);
-  white-space: pre-wrap;
+  background: rgba(0, 0, 0);
+  height: 600px;
+  overflow: auto;
 }
 </style>
 
 <script>
+import { createTerminal } from 'terminatorator'
+
 export default {
   props: {
     value: {
@@ -48,7 +40,7 @@ export default {
     }
   },
   data: () => ({
-    command: '',
+    inited: false,
     bash: `Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-64-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -86,6 +78,21 @@ export default {
     },
     enter() {
       this.command = ''
+    }
+  },
+  watch: {
+    dialog(val) {
+      if (val && !this.inited) {
+        this.$nextTick(function() {
+          createTerminal(this.$refs.terminal, {
+            welcome: this.bash,
+            theme: 'modern',
+            history: 'cli-history',
+            user: 'user'
+          })
+          this.inited = true
+        })
+      }
     }
   }
 }
