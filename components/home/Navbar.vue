@@ -17,7 +17,9 @@
       </v-col>
       <v-col cols="3">
         <v-row justify="center">
-          <v-btn class="navbar-btn" color="primary" outlined>Sign in</v-btn>
+          <router-link to="/signin">
+            <v-btn class="navbar-btn" color="primary" outlined>Sign in</v-btn>
+          </router-link>
           <div style="width: 20px"></div>
           <v-btn class="navbar-btn" color="primary" depressed>Sign up</v-btn>
         </v-row>
@@ -51,5 +53,9 @@ export default {
 }
 .menu-item:hover {
   color: #3c9d9b;
+}
+.navbar-btn {
+  font-size: 16px;
+  text-transform: capitalize;
 }
 </style>
