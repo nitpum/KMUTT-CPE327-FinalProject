@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height fluid>
+  <div class="fill-height">
     <v-row class="bg">
       <v-col cols="12">
         <v-row>
@@ -8,7 +8,7 @@
             <div class="input-card">
               <input class="input" type="text" placeholder="Email Address" />
               <input class="input" type="password" placeholder="Password" />
-              <v-btn class="navbar-btn input" color="primary">Sign in</v-btn>
+              <v-btn class="navbar-btn input" color="primary" to="/cloud">Sign in</v-btn>
               <p class="sep-card">or sign in with</p>
               <v-btn style="margin-top: -10px;" class="navbar-btn input" outlined>
                 <img class="logo" :src="require('@/assets/icons/google.svg')" alt />
@@ -17,9 +17,13 @@
             </div>
           </div>
         </v-row>
+        <div class="mt-6 text-center">
+          Don't have an account?
+          <router-link to="/signup">Create one now</router-link>
+        </div>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script>
