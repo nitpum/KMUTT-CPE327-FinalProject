@@ -18,9 +18,12 @@ a {
 }
 </style>
 
-<style scoped>
+<style>
 .content {
   background-color: #f2f5f9;
+}
+.tab-bar {
+  border-bottom: #c4c4c4 solid 1px;
 }
 </style>
 

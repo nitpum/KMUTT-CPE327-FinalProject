@@ -1,19 +1,12 @@
 <template>
   <div>
-    <div class="title">
-      Choose an Image
-    </div>
-    <v-tabs background-color="transparent">
+    <div class="title">Choose an Image</div>
+    <v-tabs class="tab-bar" background-color="transparent">
       <v-tab>Distribution</v-tab>
       <v-tab>Marketplace</v-tab>
     </v-tabs>
     <v-row>
-      <v-col
-        v-for="(image, i) in images"
-        :key="'image-' + i"
-        cols="6"
-        sm="3"
-      >
+      <v-col v-for="(image, i) in images" :key="'image-' + i" cols="6" sm="3">
         <distro
           :logo="image.logo"
           :distro="image.distro"
@@ -46,26 +39,17 @@ export default {
       {
         logo: 'cof_white-orange_hex.png',
         distro: 'Ubuntu',
-        versions: [
-          '18.04.3 (LTS)',
-          '16.04.6 (LTS)'
-        ]
+        versions: ['18.04.3 (LTS)', '16.04.6 (LTS)']
       },
       {
         logo: 'freebsd-logo-png-transparent.png',
         distro: 'FreeBSD',
-        versions: [
-          '12.1',
-          '12.0',
-          '11.3'
-        ]
+        versions: ['12.1', '12.0', '11.3']
       },
       {
         logo: 'Fedora_logo.png',
         distro: 'Fedora',
-        versions: [
-          '31'
-        ]
+        versions: ['31']
       }
     ]
   }),

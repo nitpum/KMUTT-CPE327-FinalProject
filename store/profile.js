@@ -1,5 +1,7 @@
 export const state = () => ({
   avatar: 'https://pbs.twimg.com/media/DxI2D7NW0AAqsPx.jpg',
+  username: 'john_doe',
+  googleSignin: 'john_doe@gmail.com',
   firstname: 'John',
   lastname: 'Doe',
   email: 'john@doe.com',
@@ -12,7 +14,25 @@ export const state = () => ({
       Thailand`
     .split('\n')
     .map(line => line.trim())
-    .join('\n')
+    .join('\n'),
+  logs: [
+    {
+      no: 2,
+      status: 'success',
+      ip: '127.123.111.1',
+      country: 'Thailand',
+      date: 'May 23, 2019',
+      time: '8.03'
+    },
+    {
+      no: 1,
+      status: 'fail',
+      ip: '127.123.111.1',
+      country: 'Thailand',
+      date: 'May 23, 2019',
+      time: '8.01'
+    }
+  ]
 })
 
 export const mutations = {

@@ -2,14 +2,13 @@
   <v-container justify="center" align="center" style="max-width: 800px;">
     <div>
       <h1 class="headline">Profile</h1>
-      <v-tabs class="mt-3" background-color="transparent">
+      <v-tabs class="mt-3 tab-bar" background-color="transparent">
         <v-tab
           v-for="(tab, i) in menu"
           :key="'tab-' + i"
           :to="'/profile' + tab.to"
           exact
-          >{{ tab.name }}</v-tab
-        >
+        >{{ tab.name }}</v-tab>
       </v-tabs>
       <nuxt-child />
     </div>
