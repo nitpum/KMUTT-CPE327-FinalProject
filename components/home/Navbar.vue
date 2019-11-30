@@ -5,7 +5,9 @@
         <v-card class="pa-2" outlined tile>One of three columns</v-card>
       </v-col>-->
       <v-col cols="2">
-        <logo />
+        <router-link to="/" style="cursor:pointer">
+          <logo />
+        </router-link>
       </v-col>
       <v-col cols="7">
         <v-row justify="start" fluid no-gutters>
