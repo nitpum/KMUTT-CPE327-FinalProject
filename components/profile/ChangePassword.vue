@@ -1,7 +1,9 @@
 <template>
   <v-dialog v-model="dialog" width="400">
     <template #activator="{ on }">
-      <v-btn class="btn" v-on="on" color="primary" small depressed>change</v-btn>
+      <v-btn class="btn" v-on="on" color="primary" small depressed
+        >change</v-btn
+      >
     </template>
     <v-card>
       <v-card-title>
@@ -10,9 +12,14 @@
       </v-card-title>
       <v-card-text>
         <v-form>
-          <v-text-field label="Old Password" outlined dense />
-          <v-text-field label="New Password" outlined dense />
-          <v-text-field label="Confirm Password" outlined dense />
+          <v-text-field type="password" label="Old Password" outlined dense />
+          <v-text-field type="password" label="New Password" outlined dense />
+          <v-text-field
+            type="password"
+            label="Confirm Password"
+            outlined
+            dense
+          />
         </v-form>
         <div class="d-flex flex-row-reverse">
           <v-btn color="primary" depressed class="ml-3">save</v-btn>
