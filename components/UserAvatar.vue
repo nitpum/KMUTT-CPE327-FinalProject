@@ -10,9 +10,9 @@
         <v-avatar size="36px">
           <v-img :src="$store.state.profile.avatar" />
         </v-avatar>
-        <v-icon right>
-          {{ menu ? 'mdi-chevron-up' : 'mdi-chevron-down' }}
-        </v-icon>
+        <v-icon right>{{
+          menu ? 'mdi-chevron-up' : 'mdi-chevron-down'
+        }}</v-icon>
       </v-btn>
     </template>
 
@@ -24,6 +24,7 @@
             Send feedback
           </v-list-item-title>
         </v-list-item>
+        <v-divider />
         <v-list-item to="/">
           <v-list-item-title>
             <v-icon left small>mdi-logout</v-icon>
@@ -34,6 +35,13 @@
     </v-card>
   </v-menu>
 </template>
+
+<style scoped>
+.line {
+  width: 100%;
+  border-bottom: 0.5px solid rgba(102, 102, 102, 0.5);
+}
+</style>
 
 <script>
 export default {
