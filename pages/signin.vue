@@ -9,6 +9,11 @@
               <input class="input" type="text" placeholder="Email Address" />
               <input class="input" type="password" placeholder="Password" />
               <v-btn class="navbar-btn input" color="primary">Sign in</v-btn>
+              <p class="sep-card">or sign in with</p>
+              <v-btn style="margin-top: -10px;" class="navbar-btn input" outlined>
+                <img class="logo" :src="require('@/assets/icons/google.svg')" alt />
+                Google
+              </v-btn>
             </div>
           </div>
         </v-row>
@@ -31,15 +36,15 @@ export default {
   background-color: #f2f5f9;
 }
 .login-card {
-  margin: 12% 0px 0px 30%;
+  margin: 15% 0px 0px 30%;
   width: 40%;
-  height: 300px;
+  height: 380px;
   background-color: white;
   box-shadow: 0px 6px 14px 0px rgba(0, 0, 0, 0.1);
 }
 .title-card {
-  margin-top: 12px;
-  font-size: 20px;
+  margin-top: 36px;
+  font-size: 24px;
   color: #000000;
   text-align: center;
   font-weight: normal;
@@ -49,13 +54,24 @@ export default {
 }
 .input {
   width: 100%;
-  font-size: 16px;
+  font-size: 13px;
   padding: 9px;
   height: 34px;
   background: #ffffff;
-  border: 1px solid #9b9b9b;
+  border: 0.5px solid #9b9b9b;
   box-sizing: border-box;
   border-radius: 4px;
   margin-top: 25px;
+}
+.sep-card {
+  text-align: center;
+  padding: 10px 0px 0px 10px;
+  color: #9b9b9b;
+}
+
+.logo {
+  width: 20px;
+  margin: 0px;
+  margin-right: 6px;
 }
 </style>
