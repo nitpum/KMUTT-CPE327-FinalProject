@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-tabs v-model="tab">
+    <v-tabs class="tab-bar" v-model="tab">
       <v-tab>Graph</v-tab>
       <v-tab>Access</v-tab>
       <v-tab>Power</v-tab>
@@ -34,6 +34,6 @@ export default {
   data: () => ({
     tab: null,
     content: ['Graph', 'Access', 'Power', 'Destroy']
-  }),
+  })
 }
 </script>
