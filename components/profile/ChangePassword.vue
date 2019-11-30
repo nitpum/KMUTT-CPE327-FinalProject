@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" width="400">
     <template #activator="{ on }">
-      <v-btn v-on="on" color="primary" small depressed>change</v-btn>
+      <v-btn class="btn" v-on="on" color="primary" small depressed>change</v-btn>
     </template>
     <v-card>
       <v-card-title>
@@ -22,6 +22,12 @@
     </v-card>
   </v-dialog>
 </template>
+
+<style scoped>
+.btn {
+  width: 110px;
+}
+</style>
 
 <script>
 export default {
