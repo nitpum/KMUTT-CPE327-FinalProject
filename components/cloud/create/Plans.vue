@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="d-flex">
-      <div class="title">
-        Choose a plan
-      </div>
+      <div class="title">Choose a plan</div>
       <a href="/support" target="blank" class="help ml-auto d-flex align-center">
         Help me choose
         <v-icon right color="primary">mdi-alert-circle-outline</v-icon>
@@ -11,13 +9,9 @@
     </div>
     <v-tabs v-model="selectedTab" background-color="transparent">
       <v-tab>All type</v-tab>
-      <v-tab
-        v-for="tab in tabs.slice(1)"
-        :key="'tab-' + tab"
-      >
-        {{ tab }}
-      </v-tab>
+      <v-tab v-for="tab in tabs.slice(1)" :key="'tab-' + tab">{{ tab }}</v-tab>
     </v-tabs>
+
     <v-radio-group v-model="selected">
       <v-data-table
         :headers="headers"
@@ -29,16 +23,19 @@
         hide-default-footer
         disable-sort
         :custom-filter="planFilter"
+        style="width: 115%"
       >
         <template v-slot:item.data-table-select="{ item }">
           <v-radio color="primary" :value="item.id" />
         </template>
         <template v-slot:item.price="{ value }">
-          ${{ value }}/mo<br />
+          ${{ value }}/mo
+          <br />
           ${{ (value / 720).toFixed(3) }}/hr
         </template>
       </v-data-table>
     </v-radio-group>
+
     <div class="caption" v-if="currentPlan">
       Currently selected:
       {{ currentPlan.type }} /
@@ -60,26 +57,26 @@ export default {
     selectedTab: 0,
     tabs: ['.*', 'Standard', 'Optimize'],
     plans: [
-       {
-         id: 1,
-         type: 'Standard',
-         cpuType: 'Shared CPU',
-         vCPUs: '1 vCPU',
-         memory: '1 GB',
-         ssd: '25 GB',
-         transfer: '1 TB',
-         price: 5
-       },
-       {
-         id: 2,
-         type: 'Standard',
-         cpuType: 'Shared CPU',
-         vCPUs: '1 vCPU',
-         memory: '2 GB',
-         ssd: '50 GB',
-         transfer: '2 TB',
-         price: 10
-       }
+      {
+        id: 1,
+        type: 'Standard',
+        cpuType: 'Shared CPU',
+        vCPUs: '1 vCPU',
+        memory: '1 GB',
+        ssd: '25 GB',
+        transfer: '1 TB',
+        price: 5
+      },
+      {
+        id: 2,
+        type: 'Standard',
+        cpuType: 'Shared CPU',
+        vCPUs: '1 vCPU',
+        memory: '2 GB',
+        ssd: '50 GB',
+        transfer: '2 TB',
+        price: 10
+      }
     ],
     selected: 0,
     headers: [
@@ -89,15 +86,15 @@ export default {
       },
       {
         text: 'CPU-Type',
-        value: 'cpuType',
+        value: 'cpuType'
       },
       {
         text: 'vCPUs',
-        value: 'vCPUs',
+        value: 'vCPUs'
       },
       {
         text: 'Memory',
-        value: 'memory',
+        value: 'memory'
       },
       {
         text: 'SSD',
