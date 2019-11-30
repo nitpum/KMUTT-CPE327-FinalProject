@@ -11,8 +11,11 @@
 
     <v-card>
       <v-list dense>
-        <v-list-item>
-          <v-list-item-title>Send feedback</v-list-item-title>
+        <v-list-item @click="feedback = true">
+          <v-list-item-title>
+            Send feedback
+            <send-feedback />
+          </v-list-item-title>
         </v-list-item>
         <div class="line"></div>
         <router-link to="/">
@@ -33,7 +36,11 @@
 </style>
 
 <script>
+import SendFeedback from './SendFeedback'
 export default {
+  components: {
+    SendFeedback
+  },
   data: () => ({
     menu: false
   })
