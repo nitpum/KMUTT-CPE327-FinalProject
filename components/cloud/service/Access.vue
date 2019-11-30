@@ -3,13 +3,10 @@
     <v-col cols="12">
       <v-card outlined>
         <v-card-title>Console Access</v-card-title>
+        <v-card-text>This will open up a console VNC connection to your Cloud service and is the equivalent of pluging a monitor and keyboard directly to your virtual server</v-card-text>
         <v-card-text>
-          This will open up a console VNC connection to your Cloud service and is the equivalent of pluging a monitor and keyboard directly to your virtual server
-        </v-card-text>
-        <v-card-text>
-          <v-btn color="primary" depressed large>
-            Launch Console
-          </v-btn>
+          <v-btn color="primary" depressed large @click="terminal = true">Launch Console</v-btn>
+          <terminal v-model="terminal" />
         </v-card-text>
       </v-card>
     </v-col>
@@ -22,9 +19,7 @@
           <router-link to="/support">support</router-link>
         </v-card-text>
         <v-card-text>
-          <v-btn depressed large>
-            Reset Root Password
-          </v-btn>
+          <v-btn depressed large>Reset Root Password</v-btn>
         </v-card-text>
       </v-card>
     </v-col>
@@ -36,3 +31,16 @@ a {
   text-decoration: none;
 }
 </style>
+
+<script>
+import Terminal from './Terminal'
+
+export default {
+  components: {
+    Terminal
+  },
+  data: () => ({
+    terminal: false
+  })
+}
+</script>
