@@ -44,9 +44,9 @@ export default {
   data() {
     return {
       breadcrumbs: [
-        { text: 'Support', href: '/support' },
-        { text: 'Article', href: '/support/article' },
-        { text: 'View', href: '/support/article', disabled: true }
+        { text: 'Support', to: '/support', exact: true },
+        { text: 'Article', to: '/support/article', exact: true },
+        { text: 'View', to: '/support/article', disabled: true }
       ]
     }
   }
