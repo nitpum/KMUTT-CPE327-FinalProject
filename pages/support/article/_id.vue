@@ -36,14 +36,13 @@ export default {
   computed: {
     article() {
       return articleData.filter(item => item.id === this.id)
+    },
+    id() {
+      return this.$route.params.id
     }
-  },
-  mounted() {
-    this.id = this.$route.params.id
   },
   data() {
     return {
-      id: '',
       breadcrumbs: [
         { text: 'Support', href: '/support' },
         { text: 'Article', href: '/support/article' },
