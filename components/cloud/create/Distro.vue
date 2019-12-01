@@ -1,26 +1,17 @@
 <template>
   <v-card>
     <v-card-text class="text-center">
-      <v-img 
-        :class="img"
-        :src="require('@/assets/images/' + logo)"
-      />
+      <v-img :class="img" :src="require('@/assets/images/' + logo)" />
       {{ distro }}
     </v-card-text>
     <v-divider />
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-card-text class="d-flex" v-on="on" style="cursor: pointer;">
-          <div v-if="isSelected">
-            {{ selected.version }}
-          </div>
-          <div v-else>
-            Select version
-          </div>
+          <div v-if="isSelected">{{ selected.version }}</div>
+          <div v-else>Select version</div>
           <div class="ml-auto">
-            <v-icon>
-              mdi-chevron-down
-            </v-icon>
+            <v-icon>mdi-chevron-down</v-icon>
           </div>
         </v-card-text>
       </template>
@@ -38,7 +29,7 @@
 </template>
 
 <style scoped>
-.unselected {
+.unselected-img {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   opacity: 60%;
@@ -73,7 +64,7 @@ export default {
       return this.selected.distro === this.distro
     },
     img() {
-      return ['ma-6'].concat(this.isSelected ? [] : ['unselected'])
+      return { 'ma-6': true, 'unselected-img': !this.isSelected }
     }
   },
   methods: {
