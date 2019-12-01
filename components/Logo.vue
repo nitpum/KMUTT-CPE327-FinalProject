@@ -1,7 +1,7 @@
 <template>
   <div>
     <img :class="iconClass" :src="require('@/assets/icons/logo.svg')" alt />
-    <span class="logo-text" :style="textStyle">LMS</span>
+    <span class="logo-text" :style="textStyle">LWS</span>
   </div>
 </template>
 
