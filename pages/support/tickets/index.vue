@@ -11,30 +11,42 @@
         <v-btn color="primary" depressed to="/support/tickets/new">Create new ticket</v-btn>
       </v-col>
     </v-row>
-    <v-card v-for="(ticket, i) in filteredTicket" :key="'ticket-'+ i" :to="`/support/tickets/${i}`">
+    <template v-if="filteredTicket.length >= 0">
+      <v-card
+        v-for="(ticket, i) in filteredTicket"
+        :key="'ticket-'+ i"
+        :to="`/support/tickets/${i}`"
+        class="mb-4"
+      >
+        <v-row>
+          <v-col class="col-sm-10">
+            <v-list-item three-line>
+              <v-list-item-content>
+                <div class="overline mb-4">#{{i}}</div>
+                <v-list-item-title class="headline mb-1">{{ticket.subject}}</v-list-item-title>
+                <v-list-item-subtitle>{{ ticket.created }}</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-col>
+          <v-col class="col-sm-2">
+            <v-list-item two-line>
+              <v-list-item-content>
+                <div class="overline mb-4">status</div>
+                <v-list-item-title
+                  class="headline mb-1"
+                  :class="{'primary--text': ticket.status === 'open'}"
+                >{{ticket.status.toUpperCase()}}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-col>
+        </v-row>
+      </v-card>
+    </template>
+    <template v-else>
       <v-row>
-        <v-col class="col-sm-10">
-          <v-list-item three-line>
-            <v-list-item-content>
-              <div class="overline mb-4">#{{i}}</div>
-              <v-list-item-title class="headline mb-1">{{ticket.subject}}</v-list-item-title>
-              <v-list-item-subtitle>{{ ticket.created }}</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </v-col>
-        <v-col class="col-sm-2">
-          <v-list-item two-line>
-            <v-list-item-content>
-              <div class="overline mb-4">status</div>
-              <v-list-item-title
-                class="headline mb-1"
-                :class="{'primary--text': ticket.status === 'open'}"
-              >{{ticket.status.toUpperCase()}}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-col>
+        <v-col></v-col>
       </v-row>
-    </v-card>
+    </template>
   </div>
 </template>
 

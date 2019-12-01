@@ -62,7 +62,13 @@ export default {
         description: this.description,
         status: 'open',
         created: new Date(),
-        priority: 'Normal'
+        priority: 'Normal',
+        comments: [{
+          avatar: 'https://pbs.twimg.com/profile_images/888432310504370176/mhoGA4uj_400x400.jpg',
+          fullname: 'Ewan React',
+          content: 'Hmmm. Interesting.',
+          created: moment().format('MMMM D, Y')
+        }]
       })
       this.$store.dispatch('snackbars/success', 'Created ticket')
       this.$router.push('/support/tickets')

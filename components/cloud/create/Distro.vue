@@ -32,7 +32,7 @@
 .unselected-img {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
-  opacity: 60%;
+  opacity: 60% !important;
 }
 </style>
 
