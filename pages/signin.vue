@@ -6,11 +6,25 @@
           <div class="login-card">
             <p class="title-card">Sign In</p>
             <div class="input-card">
-              <input class="input" type="text" placeholder="Email Address" />
-              <input class="input" type="password" placeholder="Password" />
-              <v-btn class="navbar-btn input" color="primary" @click="signIn"
-                >Sign in</v-btn
-              >
+              <v-input :error-messages="errors.email">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Email Address"
+                  v-model="email"
+                  required
+                />
+              </v-input>
+              <v-input :error-messages="errors.password">
+                <input
+                  class="input"
+                  type="password"
+                  placeholder="Password"
+                  v-model="password"
+                  required
+                />
+              </v-input>
+              <v-btn class="navbar-btn input" color="primary" @click="signIn" depressed>Sign in</v-btn>
               <p class="sep-card">or sign in with</p>
               <v-btn
                 style="margin-top: -10px;"
@@ -20,11 +34,7 @@
                 :loading="gSigningIn"
                 @click="signInWithGoogle"
               >
-                <img
-                  class="logo"
-                  :src="require('@/assets/icons/google.svg')"
-                  alt
-                />
+                <img class="logo" :src="require('@/assets/icons/google.svg')" alt />
                 Google
               </v-btn>
             </div>
@@ -43,13 +53,17 @@
 .bg {
   /* z-index: 0; */
   margin-top: -15px;
-  height: 120%;
+  height: 100%;
   background-color: #f2f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .login-card {
-  margin: 15% 0px 0px 30%;
+  margin: auto;
   width: 40%;
-  height: 380px;
+  max-width: 500px;
+  height: 420px;
   background-color: white;
   box-shadow: 0px 6px 14px 0px rgba(0, 0, 0, 0.1);
 }
@@ -91,10 +105,20 @@
 export default {
   layout: 'home',
   data: () => ({
-    gSigningIn: false
+    gSigningIn: false,
+    email: '',
+    password: '',
+    errors: {
+      email: '',
+      password: ''
+    }
   }),
   methods: {
     signIn() {
+      if (this.email != 'john@doe.com' || this.password != '1234') {
+        this.errors.password = 'Email or password is invalid'
+        return
+      }
       this.$store.dispatch('profile/signIn')
       this.$router.push('/cloud')
     },
