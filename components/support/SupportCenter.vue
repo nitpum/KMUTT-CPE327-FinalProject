@@ -77,10 +77,6 @@ export default {
           icon: 'mdi-book-outline',
           title: 'My ticket',
           to: '/support/tickets'
-        },
-        {
-          icon: 'mdi-star-outline',
-          title: 'Leave feedback'
         }
       ]
     }
