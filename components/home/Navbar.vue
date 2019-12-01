@@ -11,7 +11,9 @@
       </v-col>
       <v-col cols="7">
         <v-row justify="start" fluid no-gutters>
-          <span class="menu-item">Home</span>
+          <router-link to="/">
+            <span class="menu-item">Home</span>
+          </router-link>
           <span class="menu-item">Pricing</span>
           <span class="menu-item">Doc</span>
           <router-link tag="span" class="menu-item" to="/support">Support</router-link>
