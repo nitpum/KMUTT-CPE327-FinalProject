@@ -18,7 +18,7 @@
             class="text-center"
           >{{ item[header.key] }}</td>
           <td>
-            <a href="/static/invoice.pdf" text color="primary" class="text-center" download>Download</a>
+            <a href="/invoice.pdf" text color="primary" class="text-center" download>Download</a>
           </td>
         </tr>
       </tbody>
