@@ -36,7 +36,6 @@ import { mapMutations } from 'vuex'
 import Faq from '@/components/support/Faq'
 
 export default {
-  layout: 'support',
   components: {
     Faq
   },

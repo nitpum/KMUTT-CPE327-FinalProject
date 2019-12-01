@@ -1,5 +1,8 @@
 <template>
-  <nuxt-child />
+  <v-container justify="center" align="center" style="max-width: 1024px;">
+    <h1 class="headline">Support</h1>
+    <nuxt-child />
+  </v-container>
 </template>
 
 <script>

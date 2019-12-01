@@ -1,5 +1,5 @@
 <template>
-  <SupportCenter />
+  <support-center />
 </template>
 
 <script>

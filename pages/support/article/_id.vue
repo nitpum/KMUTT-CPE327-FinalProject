@@ -30,7 +30,6 @@ import Faq from '@/components/support/Faq'
 import articleData from '@/data/article'
 
 export default {
-  layout: 'support',
   components: {
     Faq
   },

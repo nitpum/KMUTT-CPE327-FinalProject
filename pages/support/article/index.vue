@@ -26,7 +26,6 @@ import Search from '@/components/support/Search'
 import article from '@/data/article'
 
 export default {
-  layout: 'support',
   components: {
     Search
   },

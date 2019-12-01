@@ -43,7 +43,6 @@ import moment from 'moment'
 import { mapState } from 'vuex'
 
 export default {
-  layout: 'support',
   mounted() {
     this.filter = (this.$route.query && this.$route.query.filter) || ''
   },
