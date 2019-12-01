@@ -26,7 +26,6 @@ import Search from '@/components/support/Search'
 import article from '@/data/article'
 
 export default {
-  layout: 'support',
   components: {
     Search
   },
@@ -46,8 +45,8 @@ export default {
       filter: '',
       search: '',
       breadcrumbs: [
-        { text: 'Support', href: '/support' },
-        { text: 'Article', href: '/support/article', disabled: true }
+        { text: 'Support', to: '/support', exact: true },
+        { text: 'Article', to: '/support/article', disabled: true, exact: true }
       ]
     }
   }

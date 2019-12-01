@@ -43,7 +43,6 @@ import moment from 'moment'
 import { mapState } from 'vuex'
 
 export default {
-  layout: 'support',
   mounted() {
     this.filter = (this.$route.query && this.$route.query.filter) || ''
   },
@@ -61,8 +60,8 @@ export default {
     return {
       filter: '',
       breadcrumbs: [
-        { text: 'Support', href: '/support' },
-        { text: 'Tickets', href: '/support/tickets', disabled: true }
+        { text: 'Support', to: '/support', exact: true },
+        { text: 'Tickets', to: '/support/tickets', disabled: true }
       ],
       menu: [
         {

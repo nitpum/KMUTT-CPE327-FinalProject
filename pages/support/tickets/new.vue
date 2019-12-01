@@ -36,7 +36,6 @@ import { mapMutations } from 'vuex'
 import Faq from '@/components/support/Faq'
 
 export default {
-  layout: 'support',
   components: {
     Faq
   },
@@ -47,8 +46,8 @@ export default {
       subject: '',
       description: '',
       breadcrumbs: [
-        { text: 'Support', href: '/support' },
-        { text: 'Tickets', href: '/support/tickets' },
+        { text: 'Support', to: '/support', exact: true },
+        { text: 'Tickets', to: '/support/tickets', exact: true },
         { text: 'Create new ticket', disbled: true }
       ]
     }

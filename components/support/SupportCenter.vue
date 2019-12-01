@@ -1,6 +1,5 @@
 <template>
   <v-container justify="center">
-    <h1 class="headline">Support</h1>
     <v-row justify="center">
       <v-col class="col-md-8 col-sm-12 text-center">
         <h2>How can we help you?</h2>
@@ -25,7 +24,7 @@
       <v-col class="col-sm-12 col-md-6">
         <v-card v-for="(quick, i) in quick_link" :key="`quick-${i}`" class="mb-2" :to="quick.to">
           <v-card-text class="purple--text headline">
-            <v-icon class="purple--text headline mr-1">{{ quick.icon}}</v-icon>
+            <v-icon class="purple--text headline mr-1">{{ quick.icon }}</v-icon>
             {{ quick.title }}
           </v-card-text>
         </v-card>
@@ -35,6 +34,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Faq from '@/components/support/Faq'
 import Search from '@/components/support/Search'
 

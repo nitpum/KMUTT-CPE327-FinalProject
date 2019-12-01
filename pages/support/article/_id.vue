@@ -30,25 +30,23 @@ import Faq from '@/components/support/Faq'
 import articleData from '@/data/article'
 
 export default {
-  layout: 'support',
   components: {
     Faq
   },
   computed: {
     article() {
       return articleData.filter(item => item.id === this.id)
+    },
+    id() {
+      return this.$route.params.id
     }
-  },
-  mounted() {
-    this.id = this.$route.params.id
   },
   data() {
     return {
-      id: '',
       breadcrumbs: [
-        { text: 'Support', href: '/support' },
-        { text: 'Article', href: '/support/article' },
-        { text: 'View', href: '/support/article', disabled: true }
+        { text: 'Support', to: '/support', exact: true },
+        { text: 'Article', to: '/support/article', exact: true },
+        { text: 'View', to: '/support/article', disabled: true }
       ]
     }
   }
