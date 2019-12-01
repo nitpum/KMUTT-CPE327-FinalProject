@@ -11,7 +11,14 @@
             :created="ticket.created"
             :content="ticket.description"
           />
-          <SupportCard v-for="(comment, i) in comments" :key="'comment-' + i" :fullname="comment.fullname" :avatar="comment.avatar" :created="comment.created" :content="comment.content" />
+          <SupportCard
+            v-for="(comment, i) in comments"
+            :key="'comment-' + i"
+            :fullname="comment.fullname"
+            :avatar="comment.avatar"
+            :created="comment.created"
+            :content="comment.content"
+          />
           <form v-if="ticket.status === 'open'" @submit.prevent="submit">
             <v-card class="mb-4">
               <v-card-text>
@@ -138,29 +145,38 @@ export default {
   },
   methods: {
     upload(file) {
-      var reader = new FileReader();
+      var reader = new FileReader()
       var self = this
       reader.onloadend = function() {
         self.replyImage = reader.result
       }
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file)
     },
     submit() {
       const ran = Math.floor(Math.random() * 101)
-      this.$store.commit('support/ADD_TICKET_COMMENT', { index: this.id, comment: {
-        self: true,
-        content: this.replyContent,
-        image: this.replyImage,
-        created: moment().format('MMMM D, Y')
-      }})
-      if (ran >= 50) {
-        this.$store.commit('support/ADD_TICKET_COMMENT', { index: this.id, comment: {
-          avatar: 'https://pbs.twimg.com/profile_images/888432310504370176/mhoGA4uj_400x400.jpg',
-          fullname: 'Ewan React',
-          content: 'Hmmm. Interesting.',
+      this.$store.commit('support/ADD_TICKET_COMMENT', {
+        index: this.id,
+        comment: {
+          self: true,
+          content: this.replyContent,
+          image: this.replyImage,
           created: moment().format('MMMM D, Y')
-        }})
+        }
+      })
+      if (ran >= 50) {
+        this.$store.commit('support/ADD_TICKET_COMMENT', {
+          index: this.id,
+          comment: {
+            avatar:
+              'https://pbs.twimg.com/profile_images/888432310504370176/mhoGA4uj_400x400.jpg',
+            fullname: 'Ewan React',
+            content: 'Hmmm. Interesting.',
+            created: moment().format('MMMM D, Y')
+          }
+        })
       }
+      this.replyContent = ''
+      this.replyImage = ''
     }
   }
 }
