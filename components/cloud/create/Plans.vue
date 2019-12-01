@@ -2,12 +2,20 @@
   <div>
     <div class="d-flex">
       <div class="title">Choose a plan</div>
-      <a href="/support" target="blank" class="help ml-auto d-flex align-center">
+      <a
+        href="/support"
+        target="blank"
+        class="help ml-auto d-flex align-center"
+      >
         Help me choose
         <v-icon right color="primary">mdi-alert-circle-outline</v-icon>
       </a>
     </div>
-    <v-tabs class="tab-bar" v-model="selectedTab" background-color="transparent">
+    <v-tabs
+      class="tab-bar"
+      v-model="selectedTab"
+      background-color="transparent"
+    >
       <v-tab>All type</v-tab>
       <v-tab v-for="tab in tabs.slice(1)" :key="'tab-' + tab">{{ tab }}</v-tab>
     </v-tabs>
@@ -24,6 +32,7 @@
         disable-sort
         :custom-filter="planFilter"
         style="width: 115%"
+        @click:row="clickRow"
       >
         <template v-slot:item.data-table-select="{ item }">
           <v-radio color="primary" :value="item.id" />
@@ -38,8 +47,7 @@
 
     <div class="caption" v-if="currentPlan">
       Currently selected:
-      {{ currentPlan.type }} /
-      {{ currentPlan.memory }} /
+      {{ currentPlan.type }} / {{ currentPlan.memory }} /
       {{ currentPlan.vCPUs }}
     </div>
   </div>
@@ -123,6 +131,9 @@ export default {
   methods: {
     planFilter(value, search, item) {
       return new RegExp(search).test(item.type)
+    },
+    clickRow(val) {
+      this.selected = val.id
     }
   }
 }

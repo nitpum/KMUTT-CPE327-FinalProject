@@ -1,9 +1,9 @@
 <template>
-  <SupportCenter />
+  <support-center />
 </template>
 
 <script>
-import SupportCenter from '@/components/support/Supportcenter'
+import SupportCenter from '@/components/support/SupportCenter'
 
 export default {
   components: {

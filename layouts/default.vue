@@ -4,9 +4,11 @@
     <toolbar @toggle-drawer="drawer = !drawer" />
     <v-content class="content">
       <v-container>
-        <nuxt />
+        <nuxt v-if="!$slots.default" />
+        <slot />
       </v-container>
     </v-content>
+    <snackbars />
   </v-app>
 </template>
 
@@ -28,11 +30,13 @@ a {
 <script>
 import Drawer from '@/components/Drawer'
 import Toolbar from '@/components/Toolbar'
+import Snackbars from '@/components/Snackbars'
 
 export default {
   components: {
     Drawer,
-    Toolbar
+    Toolbar,
+    Snackbars
   },
   data: () => ({
     drawer: null

@@ -1,4 +1,5 @@
 export const state = () => ({
+  signedIn: false,
   avatar: 'https://pbs.twimg.com/media/DxI2D7NW0AAqsPx.jpg',
   username: 'john_doe',
   googleSignin: 'john_doe@gmail.com',
@@ -41,7 +42,8 @@ export const mutations = {
   SET_EMAIL: (state, payload) => (state.email = payload),
   SET_TEL: (state, payload) => (state.tel = payload),
   SET_COMPANY: (state, payload) => (state.company = payload),
-  SET_ADDRESS: (state, payload) => (state.address = payload)
+  SET_ADDRESS: (state, payload) => (state.address = payload),
+  SIGN_IN: (state, payload) => (state.signedIn = payload)
 }
 
 export const actions = {
@@ -52,5 +54,16 @@ export const actions = {
     commit('SET_TEL', tel)
     commit('SET_COMPANY', company)
     commit('SET_ADDRESS', address)
+  },
+  signIn({ commit }) {
+    return commit('SIGN_IN', true)
+  },
+  signOut({ commit }) {
+    return commit('SIGN_IN', false)
+  },
+  signInWithGoogle() {
+    const { gapi } = window
+    const auth2 = gapi.auth2.getAuthInstance()
+    return auth2.signIn()
   }
 }

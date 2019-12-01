@@ -18,6 +18,7 @@
 <script>
 export default {
   name: 'Profile',
+  middleware: 'auth',
   head() {
     return {
       title: 'Profile'
