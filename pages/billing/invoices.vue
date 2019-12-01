@@ -7,9 +7,7 @@
             v-for="header in headers"
             :key="'header-' + header.key"
             class="text-center"
-          >
-            {{ header.name }}
-          </th>
+          >{{ header.name }}</th>
         </tr>
       </thead>
       <tbody>
@@ -18,13 +16,9 @@
             v-for="header in headers.slice(0, -1)"
             :key="['invoice', item.id, header.key].join('-')"
             class="text-center"
-          >
-            {{ item[header.key] }}
-          </td>
+          >{{ item[header.key] }}</td>
           <td>
-            <a href="#" text color="primary" class="text-center">
-              Download
-            </a>
+            <a href="/static/invoice.pdf" text color="primary" class="text-center" download>Download</a>
           </td>
         </tr>
       </tbody>
