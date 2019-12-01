@@ -60,5 +60,10 @@ export const actions = {
   },
   signOut({ commit }) {
     return commit('SIGN_IN', false)
+  },
+  signInWithGoogle() {
+    const { gapi } = window
+    const auth2 = gapi.auth2.getAuthInstance()
+    return auth2.signIn()
   }
 }

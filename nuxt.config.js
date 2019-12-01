@@ -30,7 +30,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/localStorage.js', ssr: false }],
+  plugins: [{ src: '~/plugins/localStorage.js', ssr: false }, '@/plugins/gapi'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -40,7 +40,8 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Axios module configuration
@@ -86,5 +87,9 @@ export default {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }
     }
+  },
+  env: {
+    GAPI_CLIENT_ID: process.env.GAPI_CLIENT_ID,
+    GAPI_KEY: process.env.GAPI_KEY
   }
 }

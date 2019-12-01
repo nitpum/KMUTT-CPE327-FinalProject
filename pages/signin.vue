@@ -8,10 +8,23 @@
             <div class="input-card">
               <input class="input" type="text" placeholder="Email Address" />
               <input class="input" type="password" placeholder="Password" />
-              <v-btn class="navbar-btn input" color="primary" @click="signIn">Sign in</v-btn>
+              <v-btn class="navbar-btn input" color="primary" @click="signIn"
+                >Sign in</v-btn
+              >
               <p class="sep-card">or sign in with</p>
-              <v-btn style="margin-top: -10px;" class="navbar-btn input" outlined>
-                <img class="logo" :src="require('@/assets/icons/google.svg')" alt />
+              <v-btn
+                style="margin-top: -10px;"
+                class="navbar-btn input"
+                outlined
+                :disabled="gSigningIn"
+                :loading="gSigningIn"
+                @click="signInWithGoogle"
+              >
+                <img
+                  class="logo"
+                  :src="require('@/assets/icons/google.svg')"
+                  alt
+                />
                 Google
               </v-btn>
             </div>
@@ -77,10 +90,26 @@
 <script>
 export default {
   layout: 'home',
+  data: () => ({
+    gSigningIn: false
+  }),
   methods: {
     signIn() {
       this.$store.dispatch('profile/signIn')
       this.$router.push('/cloud')
+    },
+    signInWithGoogle() {
+      this.gSigningIn = true
+      this.$store
+        .dispatch('profile/signInWithGoogle')
+        .then(() => {
+          this.$store.dispatch('profile/signIn')
+          this.$router.push('/cloud')
+        })
+        .catch(err => {
+          console.error(err)
+          this.gSigningIn = false
+        })
     }
   }
 }
