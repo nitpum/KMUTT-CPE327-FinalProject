@@ -14,7 +14,7 @@
           <span class="menu-item">Home</span>
           <span class="menu-item">Pricing</span>
           <span class="menu-item">Doc</span>
-          <span class="menu-item">Support</span>
+          <router-link tag="span" class="menu-item" to="/support">Support</router-link>
         </v-row>
       </v-col>
       <v-col cols="3">
@@ -57,6 +57,7 @@ export default {
 }
 .menu-item:hover {
   color: #3c9d9b;
+  cursor: pointer;
 }
 .navbar-btn {
   padding: 0px 30px 0px 30px !important;

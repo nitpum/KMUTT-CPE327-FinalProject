@@ -15,6 +15,7 @@ import Service from '@/components/cloud/title/Service'
 import Breadcrumbs from '@/components/cloud/Breadcrumbs'
 
 export default {
+  middleware: 'auth',
   components: {
     Dashboard,
     Create,
@@ -23,11 +24,15 @@ export default {
   },
   computed: {
     title() {
-      switch(this.$route.name) {
-        case 'cloud': return 'Dashboard'
-        case 'cloud-create': return 'Create'
-        case 'cloud-id': return 'Service'
-        default: return 'Dashboard'
+      switch (this.$route.name) {
+        case 'cloud':
+          return 'Dashboard'
+        case 'cloud-create':
+          return 'Create'
+        case 'cloud-id':
+          return 'Service'
+        default:
+          return 'Dashboard'
       }
     }
   }

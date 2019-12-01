@@ -1,18 +1,11 @@
 <template>
-  <v-menu
-    v-model="menu"
-    :close-on-content-click="false"
-    :nudge-width="150"
-    offset-y
-  >
+  <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="150" offset-y>
     <template v-slot:activator="{ on }">
       <v-btn v-on="on" text>
         <v-avatar size="36px">
           <v-img :src="$store.state.profile.avatar" />
         </v-avatar>
-        <v-icon right>
-          {{ menu ? 'mdi-chevron-up' : 'mdi-chevron-down' }}
-        </v-icon>
+        <v-icon right>{{ menu ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
       </v-btn>
     </template>
 
@@ -25,7 +18,7 @@
         </v-list-item>
         <send-feedback v-model="sendFeedback" />
         <v-divider />
-        <v-list-item to="/">
+        <v-list-item @click="signOut">
           <v-list-item-title>
             <v-icon left small>mdi-logout</v-icon>Logout
           </v-list-item-title>
@@ -52,6 +45,12 @@ export default {
   data: () => ({
     menu: false,
     sendFeedback: false
-  })
+  }),
+  methods: {
+    signOut() {
+      this.$store.dispatch('profile/signOut')
+      this.$router.push('/')
+    }
+  }
 }
 </script>
