@@ -1,5 +1,5 @@
 # CPE327 Final Project
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/54b4d32f-cae5-40f3-8fc9-a960521cf123/deploy-status)](https://app.netlify.com/sites/kmutt-cpe327/deploys)
 > Lamo Web Service
 
 ## Requirement
