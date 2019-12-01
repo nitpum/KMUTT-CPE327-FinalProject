@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { mapMutations } from 'vuex'
 import Faq from '@/components/support/Faq'
 
@@ -63,12 +64,15 @@ export default {
         status: 'open',
         created: new Date(),
         priority: 'Normal',
-        comments: [{
-          avatar: 'https://pbs.twimg.com/profile_images/888432310504370176/mhoGA4uj_400x400.jpg',
-          fullname: 'Ewan React',
-          content: 'Hmmm. Interesting.',
-          created: moment().format('MMMM D, Y')
-        }]
+        comments: [
+          {
+            avatar:
+              'https://pbs.twimg.com/profile_images/888432310504370176/mhoGA4uj_400x400.jpg',
+            fullname: 'Ewan React',
+            content: 'Hmmm. Interesting.',
+            created: moment().format('MMMM D, Y')
+          }
+        ]
       })
       this.$store.dispatch('snackbars/success', 'Created ticket')
       this.$router.push('/support/tickets')
