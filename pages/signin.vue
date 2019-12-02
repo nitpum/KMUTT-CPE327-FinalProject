@@ -13,6 +13,7 @@
                   placeholder="Email Address"
                   v-model="email"
                   required
+                  @keyup.enter="signIn"
                 />
               </v-input>
               <v-input :error-messages="errors.password">
@@ -22,6 +23,7 @@
                   placeholder="Password"
                   v-model="password"
                   required
+                  @keyup.enter="signIn"
                 />
               </v-input>
               <v-btn class="navbar-btn input" color="primary" @click="signIn" depressed>Sign in</v-btn>
